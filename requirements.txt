@@ -1,0 +1,7 @@
+numpy
+pandas
+scipy
+plotly
+streamlit
+kaleido
+pytest

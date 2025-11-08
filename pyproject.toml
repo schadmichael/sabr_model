@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sabr-pricer"
+version = "0.2.0"
+description = "SABR-based pricer for swaptions, caps and floors with Streamlit UI (pro)"
+authors = [{name="Your Name"}]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "numpy",
+  "pandas",
+  "scipy",
+  "plotly",
+  "streamlit",
+  "kaleido",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+addopts = "-q"
