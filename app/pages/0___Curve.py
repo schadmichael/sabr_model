@@ -9,14 +9,14 @@ import plotly.express as px
 st.title("Courbe de taux")
 
 # -----------------------------------------------------
-# 📁 Fichier de courbe par défaut
+#  Fichier de courbe par défaut
 # -----------------------------------------------------
 DEFAULT_CURVE_PATH = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "..", "assets", "sample_curve.csv")
 )
 
 # -----------------------------------------------------
-# 🔄 Chargement automatique de la courbe par défaut
+#  Chargement automatique de la courbe par défaut
 # -----------------------------------------------------
 if "curve" not in st.session_state:
     if os.path.exists(DEFAULT_CURVE_PATH):
@@ -30,7 +30,7 @@ if "curve" not in st.session_state:
         st.warning("⚠️ Fichier de courbe par défaut introuvable, utilisation d'une courbe plate (2%).")
 
 # -----------------------------------------------------
-# 📤 Option : uploader une autre courbe
+#  Option : uploader une autre courbe
 # -----------------------------------------------------
 st.subheader("Charger une nouvelle courbe de taux")
 uploaded_file = st.file_uploader(
@@ -53,7 +53,7 @@ if uploaded_file is not None:
         st.error(f"Erreur lors du chargement du fichier : {e}")
 
 # -----------------------------------------------------
-# 🧠 Affichage de la courbe actuelle
+#  Affichage de la courbe actuelle
 # -----------------------------------------------------
 curve = st.session_state["curve"]
 
@@ -70,4 +70,4 @@ if isinstance(curve, ZeroCurve):
     st.dataframe(grid, use_container_width=True)
 else:
     st.info("Courbe plate utilisée.")
-    st.write(f"Taux sans risque constant : {curve.rate:.4%}")
+    st.write(f"Taux sans risque constant : {curve:.4%}")
